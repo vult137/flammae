@@ -1,0 +1,65 @@
+{% extends 'users/user_base.html' %}
+{% load staticfiles %}
+
+{% block title %}注册{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/dashboard_register.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block function %}
+    <h1>Dashboard Register</h1>
+    <div id="login_form" class="formarea shortform clearfix">
+        <form accept-charset="UTF-8" action="{% url 'users:register' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field.label }}
+                {{ field }}
+                {{ field.errors }}
+            {% endfor %}
+            <div id="formarea-buttons" class="fuck-all-these-stuff">
+                <input id="commit" type="submit" name="commit" value="注册">
+                <input type="hidden" name="goto" value="manage">
+            </div>
+
+{#            {% for field in form %}#}
+{#                <label id="label_for_email">#}
+{#                    <span>{{ field.label }}</span>#}
+{#                    {{ field }}#}
+{#                    {{ field.errors }}#}
+{#                </label>#}
+{#            {% endfor %}#}
+{#            <label id="label_for_email">#}
+{#                <span>Username</span>#}
+{#                <input class="txt_inpt" id="username" maxlength="128" name="username" type="text">#}
+{#            </label>#}
+{##}
+{#            <label id="label_for_email">#}
+{#                <span>Email</span>#}
+{#                <input class="txt_inpt" id="email" maxlength="128" name="email" type="email">#}
+{#            </label>#}
+{##}
+{#            <label id="pass">#}
+{#                <span>password</span>#}
+{#                <input autocomplete="off" class="txt_inpt jsAnalyticsExclude" id="password" name="password" type="password" value="">#}
+{#            </label>#}
+{##}
+{#            <label id="pass">#}
+{#                <span>repeat password</span>#}
+{#                <input autocomplete="off" class="txt_inpt jsAnalyticsExclude" id="r_password" name="r_password" type="password" value="">#}
+{#            </label>#}
+{##}
+{#            <div id="formarea-buttons" class="fuck-all-these-stuff">#}
+{#                <input id="commit" type="submit" name="commit" value="注册">#}
+{#                <input type="hidden" name="goto" value="manage">#}
+{#            </div>#}
+
+        </form>
+    </div>
+{% endblock %}
+
+{% block login_image %}
+    <img src="{% static 'users/img/sm.jpg' %}" width="614">
+{% endblock %}

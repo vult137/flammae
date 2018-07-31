@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <div id="login-box" class="clearfix">
+        {% block function %}
+        {% endblock %}
+    </div>
+
+    <div id="promo-box" class="column">
+        <div class="promo-item">
+            {% block login_image %}
+            {% endblock %}
+
+        </div>
+    </div>
+    <footer id="footer">
+        <div id="footerLeft">
+            <div id="copyright">
+                <a class="DashboardLoginPage__footerLink" href="#">条款</a>
+                <a class="DashboardLoginPage__footerLink" href="#">隐私</a>
+                <span>© 2018 Cisco Systems, Inc.</span>
+            </div>
+        </div>
+        <div id="footerRight"></div>
+    </footer>
+{% endblock %}

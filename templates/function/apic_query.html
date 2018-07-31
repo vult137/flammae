@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}APIC-EM查询{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/dashboard_register.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js">
+    </script>
+{% endblock %}
+
+{% block main %}
+    {% for apic in apic_info_list %}
+        <p>APIC-EM id: <a target="_blank" href="{% url 'function:apic_query_detail' pk=apic.id %}">{{ apic.id }}</a></p>
+        <p>controller url: <a href="{{ apic.controller }}">{{ apic.controller }}</a></p>
+        <p>username: {{ apic.username }}</p>
+        <p>password: {{ apic.password }}</p>
+        <p><a target="_blank" href="{% url 'function:apic_query_vlan' pk=apic.id %}">查看vlan</a></p>
+    {% empty %}
+        <h1>还没有任何APIC信息</h1>
+    {% endfor %}
+{% endblock %}

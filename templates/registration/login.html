@@ -1,0 +1,58 @@
+{% extends 'users/user_base.html' %}
+{% load staticfiles %}
+
+{% block title %}登录{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/dashboard_login.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block function %}
+    <h1>Dashboard Login</h1>
+
+    <div id="login_form" class="formarea shortform clearfix">
+        <form accept-charset="UTF-8" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <label id="label_for_email">
+                <span>Username</span>
+                <input class="txt_inpt" id="username" maxlength="128" name="username" type="text">
+            </label>
+
+            <label id="pass">
+                <span>password</span>
+                <input autocomplete="off" class="txt_inpt jsAnalyticsExclude" id="password" name="password" type="password" value="">
+            </label>
+
+            <input type="hidden" name="next" value="{{ next }}">
+
+            <div id="formarea-buttons">
+                <input id="commit" type="submit" name="commit" value="登入">
+
+                <label id="remember">
+                    <input id="remember_user" name="remember_user" style="vertical-align:middle" type="checkbox" value="1">
+                    <span style="vertical-align:middle; margin-left: 5px;">保持登入</span>
+                </label>
+
+                <input type="hidden" name="goto" value="manage">
+            </div>
+        </form>
+
+        <div id="formarea-bottom" class="clearfix">
+            <ul>
+                <li>
+                    <a href="#">忘记密码</a>
+                </li>
+                <li>
+                    <a href="{% url 'users:register' %}">创建帐户</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block login_image %}
+    <img src="{% static 'users/img/datacenter.jpg' %}" width="614" height="341">
+{% endblock %}

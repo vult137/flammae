@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}全部交换机{% endblock %}
+
+{% block other_head %}
+    <style>
+        table, th, td{
+            border: black solid 1px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div>
+        {% for item in switch_list %}
+            <div id="{{ item.pk }}">
+                <table>
+                    <tr>
+                        <td><a href="{% url 'function:modify_switch' item.pk %}">交换机序号: {{ item.pk }}</a></td>
+                        <td>ip地址: {{ item.ip }}</td>
+                    </tr>
+                    <tr>
+                        <td>温度: {{ item.temperature }} °C</td>
+                        <td>端口数量: {{ item.port_num }}</td>
+                    </tr>
+                </table>
+                <p>交换机端口信息</p>
+                <table style="margin-top: 35px">
+                    <tr>
+                        {% for port in item.port_status %}
+                            <td>{{ port.port_id }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for port in item.port_status %}
+                            <td>{{ port.port_vlan }}</td>
+                        {% endfor %}
+                    </tr>
+                </table>
+
+                {% for port in item.port_status %}
+                    {% if port.port_is_trunk %}
+                        <p>port_id: {{ port.port_id }}    port_vlan: {{ port.port_vlan }}</p>
+                        <p>accepted_vlan_list: {{ port.port_accept_vlan }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <p>-----------------------------------------------------------------------------------------------</p>
+        {% endfor %}
+    </div>
+{% endblock %}

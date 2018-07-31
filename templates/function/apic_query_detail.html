@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}具体查询{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/dashboard_register.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+{% endblock %}
+
+{% block main %}
+    {% if data %}
+        <div>
+            {% for item in data.device_list %}
+                <p>{{ item }}</p>
+            {% empty %}
+                <h1>没有数据</h1>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if vlan_list %}
+        <div>
+            {% for item in vlan_list %}
+                <p>{{ item }}</p>
+            {% endfor %}
+            <div>
+                <form name="vlan_deliver" method="post" action="{% url 'function:vlan_deliver' 2 %}">
+                    {% csrf_token %}
+                    <div>
+                        <label for="switch_select">选择下发交换机</label>
+                        <select id="switch_select" name="switch_select">
+                            {% for switch in switch_list %}
+                                <option value="{{ switch.id }}">{{ switch.id }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" value="下发vlan配置"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

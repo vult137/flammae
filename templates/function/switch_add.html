@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}配置交换机{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/dashboard_login.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+
+{% endblock %}
+
+{% block main %}
+    <div>
+        {% csrf_token %}
+        <form accept-charset="UTF-8" action="{% url 'function:add_switch' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <p>{{ field.label }}</p>
+                <p>{{ field }}</p>
+                <p>{{ field.errors }}</p>
+            {% endfor %}
+            <div>
+                <input id="commit" type="submit" name="commit" value="添加">
+                <input type="hidden" name="goto" value="manage">
+            </div>
+            {% if errors %}
+                {% for error in errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

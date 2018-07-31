@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block other_head %}
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/dashboard_login.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#trunkradio :radio").change(function () {
+                var value = $(this).val();
+                if(value === "trunk")
+                    $("#temp_empty").show();
+                else
+                    $("#temp_empty").hide();
+            });
+            $("#port_select").change(function () {
+                var value = $(this).val();
+                if (value === "1")
+                    $("#port_1_warning").show();
+                else
+                    $("#port_1_warning").hide();
+            })
+        })
+    </script>
+
+{% endblock %}
+
+{% block title %}{{ pk }}号交换机设置{% endblock %}
+
+{% block main %}
+    <div>
+        {% if errors %}
+            {{ errors }}
+        {% else %}
+            {{ switch_info }}
+        {% endif %}
+        <form action="{% url 'function:modify_switch' pk %}" method="post">
+            {% csrf_token %}
+
+            <label for="port_select">选择接口</label>
+
+            <select id="port_select" name="port_select" >
+                {% for port in port_status %}
+                    {% if port.port_id == 2 %}
+                        <option value="{{ port.port_id }}" selected="selected">{{ port.port_id }}</option>
+                    {% else %}
+                        <option value="{{ port.port_id }}">{{ port.port_id }}</option>
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+            <div id="port_1_warning" hidden="hidden" style="margin-top: 20px">
+                <p  style="color: red">十分不推荐修改端口1的配置！需要交换机端口1配置不变以实现Telnet连接！</p>
+            </div>
+            <p>
+                <label for="set_vlan">配置vlan</label>
+                <input id="set_vlan" name="set_vlan" type="text" placeholder="">
+            </p>
+
+            <div id="trunkradio">
+                设置端口为trunk模式
+                <label for="trunk_y">是</label>
+                <input type="radio" id="trunk_y" name="trunk" value="trunk"/>
+                <label for="trunk_n">否</label>
+                <input type="radio" checked="checked" id="trunk_n" name="trunk" value="not trunk"/>
+            </div>
+
+            <div id="temp_empty" hidden="hidden" style="margin-top: 10px">
+                <label for="trunk_ipt">设置接收端口</label>
+                <div style="margin-top: 10px">
+                    {% for port in port_status %}
+                        <label>端口{{ port.port_id }}</label>
+                        <input type="checkbox" id="trunk_accept_{{ port.port_id }}"
+                               name="trunk_accept" value="{{ port.port_id }}">
+                        &nbsp;
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div style="margin-top: 10px">
+                <input type="submit" value="提交">
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

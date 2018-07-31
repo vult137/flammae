@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}主页{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/mobi.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/dashboard_login.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block main %}
+    <div class="flex-center">
+        {% if user.is_authenticated %}
+            <div class="unit-1-2 unit-1-on-mobile">
+                <h1>
+                    Hello, {{ user.username }}.
+                </h1>
+                <div>
+                    <button class="btn btn-default">
+                        <a href="{% url 'logout' %}?next={{ request.path }}">注销登陆</a>
+                    </button>
+                </div>
+
+                <div style="margin-top: 20px">
+                    <button class="btn btn-default">
+                        <a href="{% url 'function:add_switch' %}">登录交换机</a>
+                    </button>
+
+                    <button class="btn btn-default">
+                        <a href="{% url 'function:all_switch' %}">查看已注册交换机</a>
+                    </button>
+                </div>
+
+                <div style="margin-top: 20px">
+                    <button class="btn btn-default">
+                        <a href="{% url 'function:apic_login' %}">APIC-EM注册</a>
+                    </button>
+                    <button class="btn btn-default">
+                        <a href="{% url 'function:apic_query' %}">APIC-EM信息</a>
+                    </button>
+                </div>
+
+            </div>
+        {% else %}
+            <div class="unit-1-2 unit-1-on-mobile">
+                <h1>
+                    <a href="{% url 'login' %}?next={{ request.path }}">Login</a>, please.
+                </h1>
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}功能{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'main/css/style.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'main/css/home.css' %}" media="all" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block main %}
+    <div style="text-align: center">
+        <h1>交换机情况</h1>
+
+        <h1>apic-controller 情况</h1>
+
+    </div>
+{% endblock %}

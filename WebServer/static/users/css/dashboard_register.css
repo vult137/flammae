@@ -1,0 +1,1036 @@
+/* Button overrides
+ * Creating our own mixin to allow us to use the button-variant mixin
+ * that bootsrap provides.
+ * Our additions set hover, active, and disabled states using color variables
+ * rather than bootstrap's "darken" and "opacity" methods.
+ */
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+  .alert h4 {
+    margin-top: 0;
+    color: inherit; }
+  .alert .alert-link {
+    font-weight: bold; }
+  .alert > p,
+  .alert > ul {
+    margin-bottom: 0; }
+  .alert > p + p {
+    margin-top: 5px; }
+
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 30px; }
+  .alert-dismissable .close,
+  .alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit; }
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d; }
+  .alert-success hr {
+    border-top-color: #c9e2b3; }
+  .alert-success .alert-link {
+    color: #2b542c; }
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f; }
+  .alert-info hr {
+    border-top-color: #a6e1ec; }
+  .alert-info .alert-link {
+    color: #245269; }
+
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b; }
+  .alert-warning hr {
+    border-top-color: #f7e1b5; }
+  .alert-warning .alert-link {
+    color: #66512c; }
+
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442; }
+  .alert-danger hr {
+    border-top-color: #e4b9c0; }
+  .alert-danger .alert-link {
+    color: #843534; }
+
+/* Button overrides
+ * Creating our own mixin to allow us to use the button-variant mixin
+ * that bootsrap provides.
+ * Our additions set hover, active, and disabled states using color variables
+ * rather than bootstrap's "darken" and "opacity" methods.
+ */
+/* The normalizer bootstrap uses overrides disabled inputs cursor state with an
+ * overscoped selector `html input[disabled] {cursor: default}` L251-252
+ * This is not what we want so I'm overriding it back to cursor: not-allowed
+ */
+html input[disabled] {
+  cursor: not-allowed; }
+
+/* Style for <a> masquerading as a <button>
+ * Here we just need to tell the <a> tag to have our default btn style
+ */
+a.btn {
+  color: #222325;
+  background-color: #FAFAFA;
+  border-color: #C5C5C7;
+  /* Hover, focus, active color styling */
+  /* Active inset shadow */
+  /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+  a.btn:focus, a.btn.focus {
+    color: #222325;
+    background-color: #e1e1e1;
+    border-color: #848488; }
+  a.btn:hover {
+    color: #222325;
+    background-color: #e1e1e1;
+    border-color: #a6a6a9; }
+  a.btn:active, a.btn.active,
+  .open > a.btn.dropdown-toggle {
+    color: #222325;
+    background-color: #e1e1e1;
+    border-color: #a6a6a9; }
+    a.btn:active:hover, a.btn:active:focus, a.btn:active.focus, a.btn.active:hover, a.btn.active:focus, a.btn.active.focus,
+    .open > a.btn.dropdown-toggle:hover,
+    .open > a.btn.dropdown-toggle:focus,
+    .open > a.btn.dropdown-toggle.focus {
+      color: #222325;
+      background-color: #cfcfcf;
+      border-color: #848488; }
+  a.btn:active, a.btn.active,
+  .open > a.btn.dropdown-toggle {
+    background-image: none; }
+  a.btn.disabled:hover, a.btn.disabled:focus, a.btn.disabled.focus, a.btn[disabled]:hover, a.btn[disabled]:focus, a.btn[disabled].focus,
+  fieldset[disabled] a.btn:hover,
+  fieldset[disabled] a.btn:focus,
+  fieldset[disabled] a.btn.focus {
+    background-color: #FAFAFA;
+    border-color: #C5C5C7; }
+  a.btn .badge {
+    color: #FAFAFA;
+    background-color: #222325; }
+  a.btn:hover, a.btn.hover, a.btn:focus, a.btn.focus, a.btn:active, a.btn.active {
+    color: #222325;
+    background-color: #EBEBEB;
+    border-color: #C5C5C7; }
+  a.btn:active, a.btn.active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+  a.btn.disabled, a.btn.disabled:hover, a.btn.disabled:focus, a.btn.disabled.focus, a.btn.disabled:active, a.btn.disabled.active, a.btn[disabled], a.btn[disabled]:hover, a.btn[disabled]:focus, a.btn[disabled].focus, a.btn[disabled]:active, a.btn[disabled].active,
+  fieldset[disabled] a.btn,
+  fieldset[disabled] a.btn:hover,
+  fieldset[disabled] a.btn:focus,
+  fieldset[disabled] a.btn.focus,
+  fieldset[disabled] a.btn:active,
+  fieldset[disabled] a.btn.active {
+    color: #A2A3A6;
+    background-color: #FAFAFA;
+    border-color: #DEDFE0; }
+
+/* Styles for ".btn" elements */
+.btn {
+  /* Create each of the button types */
+  /* btn-secondary creates a "glassy" blue button that can be used as an alternate action when there is a btn-primary */
+  /* Since we want specific colors for showing disabled state, we need to
+   * override the opacity style bootstrap uses for disabled
+   */ }
+  .btn.btn-primary {
+    color: white;
+    background-color: #1470CC;
+    border-color: #1470CC;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-primary:focus, .btn.btn-primary.focus {
+      color: white;
+      background-color: #0f579e;
+      border-color: #093058; }
+    .btn.btn-primary:hover {
+      color: white;
+      background-color: #0f579e;
+      border-color: #0f5194; }
+    .btn.btn-primary:active, .btn.btn-primary.active,
+    .open > .btn.btn-primary.dropdown-toggle {
+      color: white;
+      background-color: #0f579e;
+      border-color: #0f5194; }
+      .btn.btn-primary:active:hover, .btn.btn-primary:active:focus, .btn.btn-primary:active.focus, .btn.btn-primary.active:hover, .btn.btn-primary.active:focus, .btn.btn-primary.active.focus,
+      .open > .btn.btn-primary.dropdown-toggle:hover,
+      .open > .btn.btn-primary.dropdown-toggle:focus,
+      .open > .btn.btn-primary.dropdown-toggle.focus {
+        color: white;
+        background-color: #0c457d;
+        border-color: #093058; }
+    .btn.btn-primary:active, .btn.btn-primary.active,
+    .open > .btn.btn-primary.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-primary.disabled:hover, .btn.btn-primary.disabled:focus, .btn.btn-primary.disabled.focus, .btn.btn-primary[disabled]:hover, .btn.btn-primary[disabled]:focus, .btn.btn-primary[disabled].focus,
+    fieldset[disabled] .btn.btn-primary:hover,
+    fieldset[disabled] .btn.btn-primary:focus,
+    fieldset[disabled] .btn.btn-primary.focus {
+      background-color: #1470CC;
+      border-color: #1470CC; }
+    .btn.btn-primary .badge {
+      color: #1470CC;
+      background-color: white; }
+    .btn.btn-primary:hover, .btn.btn-primary.hover, .btn.btn-primary:focus, .btn.btn-primary.focus, .btn.btn-primary:active, .btn.btn-primary.active {
+      color: white;
+      background-color: #0F5499;
+      border-color: #0F5499; }
+    .btn.btn-primary:active, .btn.btn-primary.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-primary.disabled, .btn.btn-primary.disabled:hover, .btn.btn-primary.disabled:focus, .btn.btn-primary.disabled.focus, .btn.btn-primary.disabled:active, .btn.btn-primary.disabled.active, .btn.btn-primary[disabled], .btn.btn-primary[disabled]:hover, .btn.btn-primary[disabled]:focus, .btn.btn-primary[disabled].focus, .btn.btn-primary[disabled]:active, .btn.btn-primary[disabled].active,
+    fieldset[disabled] .btn.btn-primary,
+    fieldset[disabled] .btn.btn-primary:hover,
+    fieldset[disabled] .btn.btn-primary:focus,
+    fieldset[disabled] .btn.btn-primary.focus,
+    fieldset[disabled] .btn.btn-primary:active,
+    fieldset[disabled] .btn.btn-primary.active {
+      color: white;
+      background-color: #AACEF2;
+      border-color: #AACEF2; }
+  .btn.btn-secondary {
+    color: #1470CC;
+    background-color: #F1F7FD;
+    border-color: #1470CC;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-secondary:focus, .btn.btn-secondary.focus {
+      color: #1470CC;
+      background-color: #c4def7;
+      border-color: #093058; }
+    .btn.btn-secondary:hover {
+      color: #1470CC;
+      background-color: #c4def7;
+      border-color: #0f5194; }
+    .btn.btn-secondary:active, .btn.btn-secondary.active,
+    .open > .btn.btn-secondary.dropdown-toggle {
+      color: #1470CC;
+      background-color: #c4def7;
+      border-color: #0f5194; }
+      .btn.btn-secondary:active:hover, .btn.btn-secondary:active:focus, .btn.btn-secondary:active.focus, .btn.btn-secondary.active:hover, .btn.btn-secondary.active:focus, .btn.btn-secondary.active.focus,
+      .open > .btn.btn-secondary.dropdown-toggle:hover,
+      .open > .btn.btn-secondary.dropdown-toggle:focus,
+      .open > .btn.btn-secondary.dropdown-toggle.focus {
+        color: #1470CC;
+        background-color: #a5ccf2;
+        border-color: #093058; }
+    .btn.btn-secondary:active, .btn.btn-secondary.active,
+    .open > .btn.btn-secondary.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-secondary.disabled:hover, .btn.btn-secondary.disabled:focus, .btn.btn-secondary.disabled.focus, .btn.btn-secondary[disabled]:hover, .btn.btn-secondary[disabled]:focus, .btn.btn-secondary[disabled].focus,
+    fieldset[disabled] .btn.btn-secondary:hover,
+    fieldset[disabled] .btn.btn-secondary:focus,
+    fieldset[disabled] .btn.btn-secondary.focus {
+      background-color: #F1F7FD;
+      border-color: #1470CC; }
+    .btn.btn-secondary .badge {
+      color: #F1F7FD;
+      background-color: #1470CC; }
+    .btn.btn-secondary:hover, .btn.btn-secondary.hover, .btn.btn-secondary:focus, .btn.btn-secondary.focus, .btn.btn-secondary:active, .btn.btn-secondary.active {
+      color: #0F5499;
+      background-color: #F1F7FD;
+      border-color: #0F5499; }
+    .btn.btn-secondary:active, .btn.btn-secondary.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-secondary.disabled, .btn.btn-secondary.disabled:hover, .btn.btn-secondary.disabled:focus, .btn.btn-secondary.disabled.focus, .btn.btn-secondary.disabled:active, .btn.btn-secondary.disabled.active, .btn.btn-secondary[disabled], .btn.btn-secondary[disabled]:hover, .btn.btn-secondary[disabled]:focus, .btn.btn-secondary[disabled].focus, .btn.btn-secondary[disabled]:active, .btn.btn-secondary[disabled].active,
+    fieldset[disabled] .btn.btn-secondary,
+    fieldset[disabled] .btn.btn-secondary:hover,
+    fieldset[disabled] .btn.btn-secondary:focus,
+    fieldset[disabled] .btn.btn-secondary.focus,
+    fieldset[disabled] .btn.btn-secondary:active,
+    fieldset[disabled] .btn.btn-secondary.active {
+      color: #AACEF2;
+      background-color: white;
+      border-color: #AACEF2; }
+  .btn.btn-success {
+    color: white;
+    background-color: #67B346;
+    border-color: #67B346;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-success:focus, .btn.btn-success.focus {
+      color: white;
+      background-color: #528e38;
+      border-color: #325722; }
+    .btn.btn-success:hover {
+      color: white;
+      background-color: #528e38;
+      border-color: #4e8735; }
+    .btn.btn-success:active, .btn.btn-success.active,
+    .open > .btn.btn-success.dropdown-toggle {
+      color: white;
+      background-color: #528e38;
+      border-color: #4e8735; }
+      .btn.btn-success:active:hover, .btn.btn-success:active:focus, .btn.btn-success:active.focus, .btn.btn-success.active:hover, .btn.btn-success.active:focus, .btn.btn-success.active.focus,
+      .open > .btn.btn-success.dropdown-toggle:hover,
+      .open > .btn.btn-success.dropdown-toggle:focus,
+      .open > .btn.btn-success.dropdown-toggle.focus {
+        color: white;
+        background-color: #43752e;
+        border-color: #325722; }
+    .btn.btn-success:active, .btn.btn-success.active,
+    .open > .btn.btn-success.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-success.disabled:hover, .btn.btn-success.disabled:focus, .btn.btn-success.disabled.focus, .btn.btn-success[disabled]:hover, .btn.btn-success[disabled]:focus, .btn.btn-success[disabled].focus,
+    fieldset[disabled] .btn.btn-success:hover,
+    fieldset[disabled] .btn.btn-success:focus,
+    fieldset[disabled] .btn.btn-success.focus {
+      background-color: #67B346;
+      border-color: #67B346; }
+    .btn.btn-success .badge {
+      color: #67B346;
+      background-color: white; }
+    .btn.btn-success:hover, .btn.btn-success.hover, .btn.btn-success:focus, .btn.btn-success.focus, .btn.btn-success:active, .btn.btn-success.active {
+      color: white;
+      background-color: #42732D;
+      border-color: #42732D; }
+    .btn.btn-success:active, .btn.btn-success.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-success.disabled, .btn.btn-success.disabled:hover, .btn.btn-success.disabled:focus, .btn.btn-success.disabled.focus, .btn.btn-success.disabled:active, .btn.btn-success.disabled.active, .btn.btn-success[disabled], .btn.btn-success[disabled]:hover, .btn.btn-success[disabled]:focus, .btn.btn-success[disabled].focus, .btn.btn-success[disabled]:active, .btn.btn-success[disabled].active,
+    fieldset[disabled] .btn.btn-success,
+    fieldset[disabled] .btn.btn-success:hover,
+    fieldset[disabled] .btn.btn-success:focus,
+    fieldset[disabled] .btn.btn-success.focus,
+    fieldset[disabled] .btn.btn-success:active,
+    fieldset[disabled] .btn.btn-success.active {
+      color: white;
+      background-color: #9ED188;
+      border-color: #9ED188; }
+  .btn.btn-info {
+    color: #1470CC;
+    background-color: white;
+    border-color: #1470CC;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-info:focus, .btn.btn-info.focus {
+      color: #1470CC;
+      background-color: #e6e6e6;
+      border-color: #093058; }
+    .btn.btn-info:hover {
+      color: #1470CC;
+      background-color: #e6e6e6;
+      border-color: #0f5194; }
+    .btn.btn-info:active, .btn.btn-info.active,
+    .open > .btn.btn-info.dropdown-toggle {
+      color: #1470CC;
+      background-color: #e6e6e6;
+      border-color: #0f5194; }
+      .btn.btn-info:active:hover, .btn.btn-info:active:focus, .btn.btn-info:active.focus, .btn.btn-info.active:hover, .btn.btn-info.active:focus, .btn.btn-info.active.focus,
+      .open > .btn.btn-info.dropdown-toggle:hover,
+      .open > .btn.btn-info.dropdown-toggle:focus,
+      .open > .btn.btn-info.dropdown-toggle.focus {
+        color: #1470CC;
+        background-color: #d4d4d4;
+        border-color: #093058; }
+    .btn.btn-info:active, .btn.btn-info.active,
+    .open > .btn.btn-info.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-info.disabled:hover, .btn.btn-info.disabled:focus, .btn.btn-info.disabled.focus, .btn.btn-info[disabled]:hover, .btn.btn-info[disabled]:focus, .btn.btn-info[disabled].focus,
+    fieldset[disabled] .btn.btn-info:hover,
+    fieldset[disabled] .btn.btn-info:focus,
+    fieldset[disabled] .btn.btn-info.focus {
+      background-color: white;
+      border-color: #1470CC; }
+    .btn.btn-info .badge {
+      color: white;
+      background-color: #1470CC; }
+    .btn.btn-info:hover, .btn.btn-info.hover, .btn.btn-info:focus, .btn.btn-info.focus, .btn.btn-info:active, .btn.btn-info.active {
+      color: #0F5499;
+      background-color: #F1F7FD;
+      border-color: #0F5499; }
+    .btn.btn-info:active, .btn.btn-info.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-info.disabled, .btn.btn-info.disabled:hover, .btn.btn-info.disabled:focus, .btn.btn-info.disabled.focus, .btn.btn-info.disabled:active, .btn.btn-info.disabled.active, .btn.btn-info[disabled], .btn.btn-info[disabled]:hover, .btn.btn-info[disabled]:focus, .btn.btn-info[disabled].focus, .btn.btn-info[disabled]:active, .btn.btn-info[disabled].active,
+    fieldset[disabled] .btn.btn-info,
+    fieldset[disabled] .btn.btn-info:hover,
+    fieldset[disabled] .btn.btn-info:focus,
+    fieldset[disabled] .btn.btn-info.focus,
+    fieldset[disabled] .btn.btn-info:active,
+    fieldset[disabled] .btn.btn-info.active {
+      color: #AACEF2;
+      background-color: white;
+      border-color: #AACEF2; }
+  .btn.btn-warning {
+    color: #E64D2E;
+    background-color: white;
+    border-color: #E64D2E;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-warning:focus, .btn.btn-warning.focus {
+      color: #E64D2E;
+      background-color: #e6e6e6;
+      border-color: #852410; }
+    .btn.btn-warning:hover {
+      color: #E64D2E;
+      background-color: #e6e6e6;
+      border-color: #c03317; }
+    .btn.btn-warning:active, .btn.btn-warning.active,
+    .open > .btn.btn-warning.dropdown-toggle {
+      color: #E64D2E;
+      background-color: #e6e6e6;
+      border-color: #c03317; }
+      .btn.btn-warning:active:hover, .btn.btn-warning:active:focus, .btn.btn-warning:active.focus, .btn.btn-warning.active:hover, .btn.btn-warning.active:focus, .btn.btn-warning.active.focus,
+      .open > .btn.btn-warning.dropdown-toggle:hover,
+      .open > .btn.btn-warning.dropdown-toggle:focus,
+      .open > .btn.btn-warning.dropdown-toggle.focus {
+        color: #E64D2E;
+        background-color: #d4d4d4;
+        border-color: #852410; }
+    .btn.btn-warning:active, .btn.btn-warning.active,
+    .open > .btn.btn-warning.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-warning.disabled:hover, .btn.btn-warning.disabled:focus, .btn.btn-warning.disabled.focus, .btn.btn-warning[disabled]:hover, .btn.btn-warning[disabled]:focus, .btn.btn-warning[disabled].focus,
+    fieldset[disabled] .btn.btn-warning:hover,
+    fieldset[disabled] .btn.btn-warning:focus,
+    fieldset[disabled] .btn.btn-warning.focus {
+      background-color: white;
+      border-color: #E64D2E; }
+    .btn.btn-warning .badge {
+      color: white;
+      background-color: #E64D2E; }
+    .btn.btn-warning:hover, .btn.btn-warning.hover, .btn.btn-warning:focus, .btn.btn-warning.focus, .btn.btn-warning:active, .btn.btn-warning.active {
+      color: #C7290A;
+      background-color: #FAE1DC;
+      border-color: #C7290A; }
+    .btn.btn-warning:active, .btn.btn-warning.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-warning.disabled, .btn.btn-warning.disabled:hover, .btn.btn-warning.disabled:focus, .btn.btn-warning.disabled.focus, .btn.btn-warning.disabled:active, .btn.btn-warning.disabled.active, .btn.btn-warning[disabled], .btn.btn-warning[disabled]:hover, .btn.btn-warning[disabled]:focus, .btn.btn-warning[disabled].focus, .btn.btn-warning[disabled]:active, .btn.btn-warning[disabled].active,
+    fieldset[disabled] .btn.btn-warning,
+    fieldset[disabled] .btn.btn-warning:hover,
+    fieldset[disabled] .btn.btn-warning:focus,
+    fieldset[disabled] .btn.btn-warning.focus,
+    fieldset[disabled] .btn.btn-warning:active,
+    fieldset[disabled] .btn.btn-warning.active {
+      color: #F7A894;
+      background-color: white;
+      border-color: #F7A894; }
+  .btn.btn-danger {
+    color: white;
+    background-color: #E64D2E;
+    border-color: #E64D2E;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-danger:focus, .btn.btn-danger.focus {
+      color: white;
+      background-color: #c93618;
+      border-color: #852410; }
+    .btn.btn-danger:hover {
+      color: white;
+      background-color: #c93618;
+      border-color: #c03317; }
+    .btn.btn-danger:active, .btn.btn-danger.active,
+    .open > .btn.btn-danger.dropdown-toggle {
+      color: white;
+      background-color: #c93618;
+      border-color: #c03317; }
+      .btn.btn-danger:active:hover, .btn.btn-danger:active:focus, .btn.btn-danger:active.focus, .btn.btn-danger.active:hover, .btn.btn-danger.active:focus, .btn.btn-danger.active.focus,
+      .open > .btn.btn-danger.dropdown-toggle:hover,
+      .open > .btn.btn-danger.dropdown-toggle:focus,
+      .open > .btn.btn-danger.dropdown-toggle.focus {
+        color: white;
+        background-color: #a92d14;
+        border-color: #852410; }
+    .btn.btn-danger:active, .btn.btn-danger.active,
+    .open > .btn.btn-danger.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-danger.disabled:hover, .btn.btn-danger.disabled:focus, .btn.btn-danger.disabled.focus, .btn.btn-danger[disabled]:hover, .btn.btn-danger[disabled]:focus, .btn.btn-danger[disabled].focus,
+    fieldset[disabled] .btn.btn-danger:hover,
+    fieldset[disabled] .btn.btn-danger:focus,
+    fieldset[disabled] .btn.btn-danger.focus {
+      background-color: #E64D2E;
+      border-color: #E64D2E; }
+    .btn.btn-danger .badge {
+      color: #E64D2E;
+      background-color: white; }
+    .btn.btn-danger:hover, .btn.btn-danger.hover, .btn.btn-danger:focus, .btn.btn-danger.focus, .btn.btn-danger:active, .btn.btn-danger.active {
+      color: white;
+      background-color: #C7290A;
+      border-color: #C7290A; }
+    .btn.btn-danger:active, .btn.btn-danger.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-danger.disabled, .btn.btn-danger.disabled:hover, .btn.btn-danger.disabled:focus, .btn.btn-danger.disabled.focus, .btn.btn-danger.disabled:active, .btn.btn-danger.disabled.active, .btn.btn-danger[disabled], .btn.btn-danger[disabled]:hover, .btn.btn-danger[disabled]:focus, .btn.btn-danger[disabled].focus, .btn.btn-danger[disabled]:active, .btn.btn-danger[disabled].active,
+    fieldset[disabled] .btn.btn-danger,
+    fieldset[disabled] .btn.btn-danger:hover,
+    fieldset[disabled] .btn.btn-danger:focus,
+    fieldset[disabled] .btn.btn-danger.focus,
+    fieldset[disabled] .btn.btn-danger:active,
+    fieldset[disabled] .btn.btn-danger.active {
+      color: white;
+      background-color: #F7A894;
+      border-color: #F7A894; }
+  .btn.btn-subtle {
+    color: #222325;
+    background-color: transparent;
+    border-color: transparent;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn.btn-subtle:focus, .btn.btn-subtle.focus {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+    .btn.btn-subtle:hover {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+    .btn.btn-subtle:active, .btn.btn-subtle.active,
+    .open > .btn.btn-subtle.dropdown-toggle {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+      .btn.btn-subtle:active:hover, .btn.btn-subtle:active:focus, .btn.btn-subtle:active.focus, .btn.btn-subtle.active:hover, .btn.btn-subtle.active:focus, .btn.btn-subtle.active.focus,
+      .open > .btn.btn-subtle.dropdown-toggle:hover,
+      .open > .btn.btn-subtle.dropdown-toggle:focus,
+      .open > .btn.btn-subtle.dropdown-toggle.focus {
+        color: #222325;
+        background-color: transparent;
+        border-color: transparent; }
+    .btn.btn-subtle:active, .btn.btn-subtle.active,
+    .open > .btn.btn-subtle.dropdown-toggle {
+      background-image: none; }
+    .btn.btn-subtle.disabled:hover, .btn.btn-subtle.disabled:focus, .btn.btn-subtle.disabled.focus, .btn.btn-subtle[disabled]:hover, .btn.btn-subtle[disabled]:focus, .btn.btn-subtle[disabled].focus,
+    fieldset[disabled] .btn.btn-subtle:hover,
+    fieldset[disabled] .btn.btn-subtle:focus,
+    fieldset[disabled] .btn.btn-subtle.focus {
+      background-color: transparent;
+      border-color: transparent; }
+    .btn.btn-subtle .badge {
+      color: transparent;
+      background-color: #222325; }
+    .btn.btn-subtle:hover, .btn.btn-subtle.hover, .btn.btn-subtle:focus, .btn.btn-subtle.focus, .btn.btn-subtle:active, .btn.btn-subtle.active {
+      color: #222325;
+      background-color: #EBEBEB;
+      border-color: transparent; }
+    .btn.btn-subtle:active, .btn.btn-subtle.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn.btn-subtle.disabled, .btn.btn-subtle.disabled:hover, .btn.btn-subtle.disabled:focus, .btn.btn-subtle.disabled.focus, .btn.btn-subtle.disabled:active, .btn.btn-subtle.disabled.active, .btn.btn-subtle[disabled], .btn.btn-subtle[disabled]:hover, .btn.btn-subtle[disabled]:focus, .btn.btn-subtle[disabled].focus, .btn.btn-subtle[disabled]:active, .btn.btn-subtle[disabled].active,
+    fieldset[disabled] .btn.btn-subtle,
+    fieldset[disabled] .btn.btn-subtle:hover,
+    fieldset[disabled] .btn.btn-subtle:focus,
+    fieldset[disabled] .btn.btn-subtle.focus,
+    fieldset[disabled] .btn.btn-subtle:active,
+    fieldset[disabled] .btn.btn-subtle.active {
+      color: #A2A3A6;
+      background-color: transparent;
+      border-color: transparent; }
+  .btn.disabled, .btn[disabled] {
+    opacity: 1; }
+  .btn.btn-mini {
+    padding: 2px 6px;
+    font-size: 11px;
+    line-height: -2.57143px; }
+
+.btn-group {
+  /* Extra specificity is required because the default dropdown styles are overriding */ }
+  .btn-group.subtle > .dropdown-toggle {
+    color: #222325;
+    background-color: transparent;
+    border-color: transparent;
+    /* Hover, focus, active color styling */
+    /* Active inset shadow */
+    /* Disabled styles
+   * The nesting here is taken from how bootstrap does it, sorry for the poor readability
+   */ }
+    .btn-group.subtle > .dropdown-toggle:focus, .btn-group.subtle > .dropdown-toggle.focus {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle:hover {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle:active, .btn-group.subtle > .dropdown-toggle.active,
+    .open > .btn-group.subtle > .dropdown-toggle.dropdown-toggle {
+      color: #222325;
+      background-color: transparent;
+      border-color: transparent; }
+      .btn-group.subtle > .dropdown-toggle:active:hover, .btn-group.subtle > .dropdown-toggle:active:focus, .btn-group.subtle > .dropdown-toggle:active.focus, .btn-group.subtle > .dropdown-toggle.active:hover, .btn-group.subtle > .dropdown-toggle.active:focus, .btn-group.subtle > .dropdown-toggle.active.focus,
+      .open > .btn-group.subtle > .dropdown-toggle.dropdown-toggle:hover,
+      .open > .btn-group.subtle > .dropdown-toggle.dropdown-toggle:focus,
+      .open > .btn-group.subtle > .dropdown-toggle.dropdown-toggle.focus {
+        color: #222325;
+        background-color: transparent;
+        border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle:active, .btn-group.subtle > .dropdown-toggle.active,
+    .open > .btn-group.subtle > .dropdown-toggle.dropdown-toggle {
+      background-image: none; }
+    .btn-group.subtle > .dropdown-toggle.disabled:hover, .btn-group.subtle > .dropdown-toggle.disabled:focus, .btn-group.subtle > .dropdown-toggle.disabled.focus, .btn-group.subtle > .dropdown-toggle[disabled]:hover, .btn-group.subtle > .dropdown-toggle[disabled]:focus, .btn-group.subtle > .dropdown-toggle[disabled].focus,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle:hover,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle:focus,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle.focus {
+      background-color: transparent;
+      border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle .badge {
+      color: transparent;
+      background-color: #222325; }
+    .btn-group.subtle > .dropdown-toggle:hover, .btn-group.subtle > .dropdown-toggle.hover, .btn-group.subtle > .dropdown-toggle:focus, .btn-group.subtle > .dropdown-toggle.focus, .btn-group.subtle > .dropdown-toggle:active, .btn-group.subtle > .dropdown-toggle.active {
+      color: #222325;
+      background-color: #EBEBEB;
+      border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle:active, .btn-group.subtle > .dropdown-toggle.active {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16); }
+    .btn-group.subtle > .dropdown-toggle.disabled, .btn-group.subtle > .dropdown-toggle.disabled:hover, .btn-group.subtle > .dropdown-toggle.disabled:focus, .btn-group.subtle > .dropdown-toggle.disabled.focus, .btn-group.subtle > .dropdown-toggle.disabled:active, .btn-group.subtle > .dropdown-toggle.disabled.active, .btn-group.subtle > .dropdown-toggle[disabled], .btn-group.subtle > .dropdown-toggle[disabled]:hover, .btn-group.subtle > .dropdown-toggle[disabled]:focus, .btn-group.subtle > .dropdown-toggle[disabled].focus, .btn-group.subtle > .dropdown-toggle[disabled]:active, .btn-group.subtle > .dropdown-toggle[disabled].active,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle:hover,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle:focus,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle.focus,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle:active,
+    fieldset[disabled] .btn-group.subtle > .dropdown-toggle.active {
+      color: #A2A3A6;
+      background-color: transparent;
+      border-color: transparent; }
+    .btn-group.subtle > .dropdown-toggle:active, .btn-group.subtle > .dropdown-toggle.active {
+      border-color: #DEDFE0;
+      box-shadow: none; }
+  .btn-group.open.subtle > .dropdown-toggle, .btn-group.open.subtle > .dropdown-toggle:focus, .btn-group.open.subtle > .dropdown-toggle.focus {
+    border: 1px solid #DEDFE0;
+    background-color: #EBEBEB;
+    box-shadow: none; }
+
+.dropdown-menu > li > a {
+  text-decoration: none;
+  padding: 0.75em 1em; }
+
+.nav {
+  margin-bottom: 18px; }
+
+.nav-tabs > li > a {
+  text-decoration: none; }
+
+.alert-clear {
+  background-color: inherit;
+  color: inherit;
+  border: 0; }
+
+.alert span.notice_close_button {
+  font-size: 1.25em; }
+
+.alert a[data-dismiss="alert"] {
+  top: 2px;
+  font-size: 1.5em; }
+
+.alert a[data-dismiss="alert"], .alert span.notice_close_button {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative; }
+  .alert a[data-dismiss="alert"]:hover, .alert span.notice_close_button:hover {
+    text-decoration: none;
+    -webkit-filter: brightness(50%); }
+
+.modal-header .close {
+  padding: 4px 8px;
+  cursor: pointer; }
+
+h4.modal-title, h1.modal-title {
+  margin-right: 35px; }
+
+input[type="search"] {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "proxima-nova-1","proxima-nova-2", "Helvetica Neue", Helvetica, verdana, sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  background: #eee; }
+
+#container {
+  min-width: 960px; }
+
+#masthead {
+  height: 125px;
+  width: 100%;
+  position: relative;
+  background: #fafafa;
+  border-top: 4px solid #78be20;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2); }
+
+#masthead-content {
+  margin: 0 auto;
+  position: relative;
+  width: 960px; }
+
+#masthead-content img {
+  float: left;
+  margin: 32px 0 0; }
+
+#content {
+  width: 960px;
+  height: 341px;
+  margin: 60px auto; }
+
+#login-box {
+  float: left;
+  width: 336px;
+  min-height: 100%;
+  background-color: white;
+  margin-bottom: 40px;
+  padding: 40px 40px 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-radius: 2px;
+  border-color: #E3E3E3;
+  display: block; }
+
+h1 {
+  color: #444;
+  font-size: 2em;
+  font-weight: 200;
+  margin: 0 0 .5em; }
+
+#login-box .formarea select {
+  width: 100%; }
+
+#remember {
+  float: left;
+  width: 45%;
+  height: 35px;
+  padding: 0;
+  margin: 8px 0 0 0;
+  border: none; }
+
+#org {
+  display: none; }
+
+#login-box .button.cta input {
+  width: 120px;
+  float: left; }
+
+.shortform label, .shortform fieldset {
+  display: inline-block;
+  width: 100%;
+  min-height: 30px;
+  margin: 0 0 10px; }
+
+.shortform input[type='text'], .shortform input[type='password'], .shortform input[type='email'], .shortform textarea {
+  width: 240px;
+  float: none;
+  padding: 7px;
+  background: #ededed;
+  color: #666;
+  border: solid 1px #ccc;
+  font-size: 1em;
+  display: block; }
+
+.shortform input:hover, .shortform input:focus {
+  border-color: #aaa;
+  box-shadow: none; }
+
+.shortform select {
+  float: right;
+  font-size: 1em;
+  width: 318px; }
+
+.shortform textarea {
+  font-size: 1em; }
+
+.shortform input:invalid, textarea:invalid {
+  border-radius: 1px;
+  box-shadow: 0px 0px 0px red; }
+
+.shortform label.error {
+  border: none;
+  color: red;
+  min-height: inherit;
+  padding: 5px 0 0;
+  margin: 0; }
+
+.shortform fieldset > span {
+  float: left;
+  display: inline;
+  margin: 0;
+  width: 10em; }
+
+.shortform fieldset > label {
+  border-bottom: none;
+  float: right;
+  display: inline-block;
+  width: 68%;
+  min-height: 1em;
+  margin: 0;
+  padding: .5em 0 0; }
+
+.shortform fieldset > label:first-of-type {
+  padding: 0; }
+
+.shortform fieldset > label input {
+  display: inline-block;
+  float: left;
+  width: 10%; }
+
+.shortform form .button {
+  margin: 15px 0 0; }
+
+.formarea label:before, .formarea label:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+.formarea label:after {
+  clear: both; }
+
+.formarea label {
+  zoom: 1;
+  border: none; }
+
+#recaptcha_challenge_image {
+  max-width: 256px;
+  max-height: 48px; }
+
+#captcha-links {
+  margin: 10px 0 20px 0;
+  display: inline-block; }
+  #captcha-links div {
+    display: inline;
+    float: left;
+    margin: 0 10px 0 0; }
+  #captcha-links ul {
+    margin: 10px 0 20px 0;
+    padding-left: 0; }
+  #captcha-links li {
+    list-style-type: none;
+    margin: 5px 10px 0 0;
+    display: inline; }
+
+#formarea-buttons {
+  display: inline-block;
+  clear: both;
+  width: 100%; }
+
+#commit {
+  display: block;
+  float: left;
+  width: 45%;
+  height: 35px;
+  margin-right: 5%;
+  margin-top: 0;
+  border: 0;
+  border-radius: 2px;
+  color: #fff;
+  background: #7ac043; }
+
+#commit:hover {
+  background: #71b41d; }
+
+#formarea-bottom {
+  margin-top: 10px; }
+
+#formarea-bottom a {
+  color: #1795E6;
+  text-decoration: none; }
+
+#formarea-bottom a:hover {
+  color: #0876BD; }
+
+#formarea-bottom li:first-of-type {
+  border-right: 1px solid #eee;
+  padding-right: 9px;
+  margin-right: 6px; }
+
+#cookie_failure_container, #javascript_failure_container {
+  background-color: #e00;
+  color: #fff;
+  z-index: 100;
+  padding: 0.25em 0.5em;
+  margin: 0.5em 0;
+  clear: both; }
+
+#formarea-bottom ul {
+  margin: 0;
+  padding: 0; }
+
+#formarea-bottom li {
+  display: inline;
+  list-style: none;
+  margin-right: 10px; }
+
+#formarea-bottom li {
+  margin-right: 0; }
+
+.DashboardLoginPage__footerLink {
+  color: #1795E6;
+  text-decoration: none;
+  padding-right: 0.5em; }
+
+.DashboardLoginPage__footerLink:hover {
+  color: #1573a3;
+  text-decoration: none; }
+
+.icpLicense__link {
+  width: 1.5em;
+  margin-right: 0.5em; }
+
+#footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  color: #808080;
+  padding: 1em;
+  font-size: 1em;
+  width: 960px;
+  margin: 0 auto; }
+
+#footerLeft, #footerRight {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+
+#footerLeft > :not(:last-child),
+#footerRight > :not(:last-child) {
+  margin-bottom: 0.5em; }
+
+#footerRight {
+  -ms-flex-align: end;
+      align-items: flex-end; }
+
+#footerLeft {
+  -ms-flex-align: start;
+      align-items: flex-start; }
+
+#china, #copyright, #languagePicker {
+  display: -ms-flexbox;
+  display: flex; }
+
+#china > :not(:last-child),
+#copyright > :not(:last-child),
+#languagePicker > :not(:last-child) {
+  margin-right: 1em; }
+
+#footer #languagePicker {
+  -ms-flex-align: end;
+      align-items: flex-end; }
+
+#footer #china > a {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+
+@media screen and (max-device-width: 768px) {
+  body, #content {
+    background: #fff; }
+  #container {
+    min-width: 320px;
+    width: 100%;
+    margin: 0; }
+  #masthead {
+    height: 80px; }
+  #masthead-content {
+    margin: 0 auto;
+    width: 320px; }
+  #masthead-content a img {
+    margin: 20px auto 10px;
+    display: block;
+    float: none; }
+  #content {
+    width: 320px;
+    margin: 5px auto 0;
+    height: 100%; }
+  #login-box {
+    width: 304px;
+    padding: 10px;
+    margin: 10px 10px 0;
+    min-height: 100px; }
+  #login-box .formarea input.txt_inpt, #login-box .formarea select {
+    width: 260px; }
+  #formarea-bottom {
+    margin: 20px auto 0;
+    width: 290px; }
+  #remember {
+    margin-right: 10px; }
+  #promo-box {
+    display: none; }
+  #footer {
+    width: 100%;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+  #footerLeft {
+    -ms-flex-order: 1;
+        order: 1;
+    -ms-flex-align: center;
+        align-items: center; }
+  #footerRight {
+    -ms-flex-order: 2;
+        order: 2;
+    -ms-flex-align: center;
+        align-items: center; } }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  body, #content {
+    background: #fff; }
+  #container {
+    min-width: 320px;
+    width: 100%;
+    margin: 0; }
+  #masthead {
+    height: 70px; }
+  #masthead-content {
+    width: 320px; }
+  #masthead-content img {
+    width: 130px; }
+  h1 {
+    font-size: 24px; }
+  #content {
+    width: 320px;
+    margin: 5px auto 0;
+    height: 100%; }
+  #login-box {
+    width: 304px;
+    float: none;
+    padding: 10px;
+    margin: 10px 10px 7px 10px;
+    min-height: 250px; }
+  .shortform label, .shortform fieldset {
+    padding: 0; }
+  #formarea-buttons {
+    margin-top: 10px; }
+  #formarea-bottom {
+    margin: 5px; }
+  #promo-box {
+    display: none; } }
+
+  .fuck-all-these-stuff{
+    margin-top: 15px;
+  }

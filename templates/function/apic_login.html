@@ -1,0 +1,43 @@
+{% extends 'users/user_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}APIC登录{% endblock %}
+
+{% block other_head %}
+    <link href="{% static 'users/css/normalize.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/dashboard_login.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link href="{% static 'users/css/login_promo.css' %}" media="all" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block function %}
+    <h1>APIC Login</h1>
+    <div id="login_form" class="formarea shortform clearfix">
+        <form accept-charset="UTF-8" action="#" method="post">
+            {% csrf_token %}
+
+            <label id="label_for_email">
+                <span>Controller</span>
+                <input class="txt_inpt" id="controller" maxlength="128" name="controller" type="text">
+            </label>
+
+
+            <label id="label_for_email">
+                <span>Username</span>
+                <input class="txt_inpt" id="username" maxlength="128" name="username" type="text">
+            </label>
+
+            <label id="pass">
+                <span>password</span>
+                <input autocomplete="off" class="txt_inpt jsAnalyticsExclude" id="password" name="password" type="password" value="">
+            </label>
+
+            <input type="hidden" name="next" value="{{ next }}">
+
+            <div id="formarea-buttons">
+                <input id="commit" type="submit" name="commit" value="登入">
+                <input type="hidden" name="goto" value="manage">
+            </div>
+        </form>
+    </div>
+{% endblock %}
